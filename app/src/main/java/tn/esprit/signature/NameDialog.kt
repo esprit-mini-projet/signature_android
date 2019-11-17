@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import java.util.*
 
 interface DialogCallback {
     fun callback(name: String)
@@ -43,7 +44,7 @@ class NameDialog : DialogFragment() {
                 Toast.LENGTH_LONG
             ).show()
             else {
-                callbak!!.callback(name)
+                callbak!!.callback(name.replace(" ", "_").toLowerCase(Locale.US))
             }
         }
 
